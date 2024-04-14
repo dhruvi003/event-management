@@ -1,0 +1,45 @@
+import React from "react";
+import Navbar from "./Navbar";
+import { Link } from "react-router-dom"
+
+export default function Dashboard({ vulnerabilities }) {
+    //component logi
+    console.log(vulnerabilities.id)
+
+    return (
+        <div>
+            <Navbar />
+            <h1>Vulnerability Dashboard</h1>
+            {/* add table here */}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Index</th>
+                        <th scope="col">Vulnerability type</th>
+                        <th scope="col">Description</th>
+                        {/* <th scope="col">Date</th> */}
+                    </tr>
+                </thead>
+                <tbody>
+            {/* this is added extra */}
+
+                {vulnerabilities.map((vulnerability, index) =>(
+                    <tr key={index}>
+                        <td>{vulnerability.id}</td>
+                        <td>{vulnerability.type}</td>
+                        <td>{vulnerability.discription}</td>
+
+                    </tr>
+                ))}
+                    
+                </tbody>
+            </table>
+            <Link to={"/add"}>
+                <button> Add vulnerabilities </button>
+            </Link>
+
+
+        </div>
+    )
+}
+

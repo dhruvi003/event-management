@@ -1,0 +1,18 @@
+<table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Description</th>
+            {/* Add other table headers as needed */}
+          </tr>
+        </thead>
+        <tbody>
+          {vulnerabilities.map((vulnerability, index) => (
+            <tr key={index}>
+              <td>{vulnerability.id}</td>
+              <td>{vulnerability.description}</td>
+              {/* Render other vulnerability details */}
+            </tr>
+          ))}
+        </tbody>
+      </table>

@@ -1,0 +1,23 @@
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AddVulnerability from "./components/AddVulnerability";
+import Dashboard from "./components/Dashboard";
+
+const App = () => {
+  const [vulnerabilities, setVulnerabilities] = useState([]);
+
+  const addVulnerability = (newVulnerability) => {
+    setVulnerabilities([...vulnerabilities, newVulnerability]);
+  };
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Dashboard vulnerabilities={vulnerabilities} />}></Route>
+        <Route path='/add' element={<AddVulnerability addVulnerability={addVulnerability} />}></Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
